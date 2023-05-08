@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/koma52/cubetimer">
+    <file preprocess="xml-stripblanks">window.ui</file>
+    <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
+    <file>gtk/style.css</file>
+  </gresource>
+  <gresource prefix="/com/github/koma52/cubetimer/icons/scalable/actions/">
+    <file alias="dock-left-symbolic.svg">assets/icons/dock-left-symbolic.svg</file>
+    <file alias="clock-alt-symbolic.svg">assets/icons/clock-alt-symbolic.svg</file>
+    <file alias="list-compact-symbolic.svg">assets/icons/list-compact-symbolic.svg</file>
+  </gresource>
+</gresources>

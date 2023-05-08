@@ -1,0 +1,6 @@
+data/com.github.koma52.cubetimer.desktop.in
+data/com.github.koma52.cubetimer.appdata.xml.in
+data/com.github.koma52.cubetimer.gschema.xml
+src/main.py
+src/window.py
+src/window.ui

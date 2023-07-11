@@ -1,0 +1,34 @@
+{
+  "name": "python3-pyCubeScrambler",
+  "buildsystem": "simple",
+  "build-commands": [
+    "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"cubescrambler\""
+  ],
+  "sources": [
+    {
+      "type": "file",
+      "url": "https://files.pythonhosted.org/packages/9d/b0/e1cd23a1f14270cb57a56b16a35b761994391e96b822dacb5266895b9859/cubescrambler-1.0.0.tar.gz",
+      "sha256": "54bf0ce3f9b86af58b25857a32ed2ad3096cae2d18340b9ad2c4e4abfb82c8b7"
+    },
+    {
+      "type": "file",
+      "url": "https://files.pythonhosted.org/packages/73/8b/d53ee945bd9f915a14dae1f9aade23d010dec309a2a2b426803bff937f00/dukpy-0.3.0.tar.gz",
+      "sha256": "ca5772e9373f3cf7772a711e65db765c4361dcf6d4e65c5d88cb879e9ee3f5a6"
+    },
+    {
+      "type": "file",
+      "url": "https://files.pythonhosted.org/packages/fd/53/e5d7ae40d03e4ed20b7cba317cf9c0c97097c8debb39f9d72d182a6578a2/setuptools-67.7.2.tar.gz",
+      "sha256": "f104fa03692a2602fa0fec6c6a9e63b6c8a968de13e17c026957dd1f53d80990"
+    },
+    {
+      "type": "file",
+      "url": "https://files.pythonhosted.org/packages/fc/ef/0335f7217dd1e8096a9e8383e1d472aa14717878ffe07c4772e68b6e8735/wheel-0.40.0.tar.gz",
+      "sha256": "cd1196f3faee2b31968d626e1731c94f99cbdb67cf5a46e4f5656cbee7738873"
+    },
+    {
+      "type": "file",
+      "url": "https://files.pythonhosted.org/packages/10/e5/be08751d07b30889af130cec20955c987a74380a10058e6e8856e4010afc/flit_core-3.8.0.tar.gz",
+      "sha256": "b305b30c99526df5e63d6022dd2310a0a941a187bd3884f4c8ef0418df6c39f3"
+    }
+  ]
+}

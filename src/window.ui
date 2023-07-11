@@ -7,7 +7,7 @@
     <property name="width-request">600</property>
     <property name="height-request">300</property>
     <property name="content">
-      <object class="GtkBox">
+      <object class="GtkBox" id="asd">
         <property name="orientation">1</property>
         <child>
           <object class="AdwHeaderBar">
@@ -41,19 +41,33 @@
                       <object class="GtkBox">
                         <property name="orientation">1</property>
                         <child>
-                          <object class="GtkComboBox" id="puzzle_type">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="hexpand">True</property>
-                            <property name="model">puzzle_types</property>
-                            <property name="active">1</property>
-                            <signal name="changed" handler="type_changed" />
+                          <object class="GtkBox">
+                            <property name="orientation">0</property>
                             <child>
-                              <object class="GtkCellRendererText" id="puzzle_types_renderer">
+                              <object class="GtkComboBox" id="puzzle_type">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="hexpand">True</property>
+                                <property name="model">puzzle_types</property>
+                                <property name="active">0</property>
+                                <child>
+                                  <object class="GtkCellRendererText" id="puzzle_types_renderer">
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">Inspection time</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkSpinButton">
+                                <property name="adjustment">my-adjustment</property>
                               </object>
                             </child>
                           </object>
-                        </child>>
+                        </child>
                         <child>
                           <object class="GtkLabel" id="scramble_text">
                             <property name="label">Scramble:</property>
@@ -150,9 +164,6 @@
   <menu id="primary_menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">Inspection time:</attribute>
-      </item>
-      <item>
         <attribute name="label" translatable="true">_Export to File...</attribute>
         <attribute name="action">app.export</attribute>
       </item>
@@ -166,5 +177,10 @@
       </item>
     </section>
   </menu>
+  <object class="GtkAdjustment" id="my-adjustment">
+  <property name="lower">0</property>
+  <property name="upper">100</property>
+  <property name="step-increment">1</property>
+</object>
 </interface>
 

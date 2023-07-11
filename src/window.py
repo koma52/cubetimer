@@ -29,6 +29,7 @@ class CubetimerWindow(Adw.Window):
     puzzle_types = Gtk.Template.Child()
     puzzle_type = Gtk.Template.Child()
     puzzle_types_renderer = Gtk.Template.Child()
+    asd = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -45,4 +46,5 @@ class CubetimerWindow(Adw.Window):
         #self.puzzle_types.append(["Item 2"])
 
         #self.asd.set_label("New Label")
+
 

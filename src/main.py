@@ -26,7 +26,7 @@ gi.require_version('Adw', '1')
 
 from gi.repository import Gtk, Gio, Adw, GLib
 from .window import CubetimerWindow
-from .scramble import gen_scramble
+from cubescrambler import scrambler222, scrambler333, scrambler444
 
 
 class CubetimerApplication(Adw.Application):
@@ -48,6 +48,14 @@ class CubetimerApplication(Adw.Application):
         #self.builder = Gtk.Builder()
         #self.builder.add_from_resource('/com/github/koma52/cubetimer/window.ui')
 
+    def generate_scramble(self, p_type):
+        if p_type == "2x2x2":
+            return scrambler222.get_WCA_scramble()
+        elif p_type == "3x3x3":
+            return scrambler333.get_WCA_scramble()
+        elif p_type == "4x4x4":
+            return scrambler444.get_random_state_scramble()
+
     def do_activate(self):
         """Called when the application is activated.
 
@@ -64,7 +72,7 @@ class CubetimerApplication(Adw.Application):
         self.puzzle_type = win.puzzle_type
         self.puzzle_type.connect("changed", self.on_type_changed)
 
-        self.scramble_text.set_label(f"Scramble: {gen_scramble(self.puzzle_type.get_model()[self.puzzle_type.get_active()][0])}")
+        self.scramble_text.set_label(f"Scramble: {self.generate_scramble(str(self.get_active_type()))}")
 
     def on_about_action(self, widget, _):
         """Callback for the app.about action."""
@@ -77,8 +85,19 @@ class CubetimerApplication(Adw.Application):
                                 copyright='© 2023 Kónya Márton')
         about.present()
 
+    def get_active_type(self):
+        active_type_index = self.puzzle_type.get_active()
+        if active_type_index != -1:
+            active_type = self.puzzle_type.get_model()[active_type_index][0]
+        else:
+            return None
+
+        return active_type
+
     def on_type_changed(self, widget):
-        self.scramble_text.set_label(f"Scramble: {gen_scramble(self.puzzle_type.get_model()[self.puzzle_type.get_active()][0])}")
+        active_type = self.get_active_type()
+
+        self.scramble_text.set_label(f"Scramble: {self.generate_scramble(str(active_type))}")
 
     def on_export_action(self, widget, _):
         """Callback for the app.preferences action."""
@@ -106,7 +125,9 @@ class CubetimerApplication(Adw.Application):
             self.start_timer()
         else:
             self.stop_timer()
-            self.scramble_text.set_label(f"Scarmble: {gen_scramble(self.puzzle_type.get_model()[self.puzzle_type.get_active()][0])}")
+
+            active_type = self.get_active_type()
+            self.scramble_text.set_label(f"Scramble: {self.generate_scramble(str(active_type))}")
 
     def create_action(self, name, callback, shortcuts=None):
         """Add an application action.
